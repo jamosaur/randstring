@@ -774,6 +774,9 @@ class Randstring
     private $min;
     private $max;
     private $case;
+    private $maxLength;
+
+    private $string;
 
     /**
      * Randstring constructor.
@@ -781,21 +784,31 @@ class Randstring
      * @param int $min
      * @param int $max
      */
-    public function __construct($case = null, $min = 1, $max = 99)
+    public function __construct($case = null, $maxLength = 100, $min = 1, $max = 99)
     {
-        $this->case     = $case;
-        $this->min      = $min;
-        $this->max      = $max;
+        $this->case         = $case;
+        $this->maxLength    = $maxLength;
+        $this->min          = $min;
+        $this->max          = $max;
+    }
+
+    public function generateString()
+    {
+        $colour         = $this->colours[rand(0, count($this->colours)-1)];
+        $animal         = $this->animals[rand(0, count($this->animals)-1)];
+        $number         = rand($this->min, $this->max);
+
+        $this->string   = $colour.$animal.$number;
     }
 
     public function generate()
     {
-        // Generate the string.
-        $colour = $this->colours[rand(0, count($this->colours)-1)];
-        $animal = $this->animals[rand(0, count($this->animals)-1)];
-        $number = rand($this->min, $this->max);
+        $this->generateString();
+        if (strlen($this->string) > $this->maxLength) {
+            return $this->generate();
+        }
 
-        $string = $colour.$animal.$number;
+        $string = $this->string;
 
         if ($this->case) {
             return ucfirst($string);
