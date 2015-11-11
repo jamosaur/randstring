@@ -31,4 +31,31 @@ class RandstringTest extends \PHPUnit_Framework_TestCase
         $string = $rand->generate();
         $this->assertEquals(ucfirst($rand->adjective).ucfirst($rand->animal).ucfirst($rand->number), $string);
     }
+
+    public function testOneThousandUniques()
+    {
+        $rand       = new \Jamosaur\Randstring\Randstring();
+        for ($i = 0; $i < 1000; $i++) {
+            $t[$i] = $rand->generate();
+        }
+        $this->assertEquals(count(array_unique($t)), 1000);
+    }
+
+    public function testFiveThousandUniques()
+    {
+        $rand       = new \Jamosaur\Randstring\Randstring();
+        for ($i = 0; $i < 5000; $i++) {
+            $t[$i] = $rand->generate();
+        }
+        $this->assertEquals(count(array_unique($t)), 5000);
+    }
+
+    public function testOneHundredThousandUniques()
+    {
+        $rand       = new \Jamosaur\Randstring\Randstring();
+        for ($i = 0; $i < 100000; $i++) {
+            $t[$i] = $rand->generate();
+        }
+        $this->assertEquals(count(array_unique($t)), 100000);
+    }
 }

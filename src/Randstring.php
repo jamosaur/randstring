@@ -14,6 +14,11 @@ class Randstring
 
     private $string;
 
+    public $combinations = [];
+
+    private $first;
+    private $second;
+
     public $adjective;
     public $animal;
     public $number;
@@ -35,11 +40,22 @@ class Randstring
         $this->animals      = explode(PHP_EOL, file_get_contents(__DIR__.'/dictionaries/animals.txt'));
     }
 
+    public function generateNumbers()
+    {
+        $this->first    = mt_rand(0, count($this->adjectives) - 1);
+        $this->second   = mt_rand(0, count($this->animals) - 1);
+        $this->number   = mt_rand($this->min, $this->max);
+        if (isset($this->combinations[$this->first.'.'.$this->second.$this->number])) {
+            return $this->generateNumbers();
+        }
+        $this->combinations[$this->first.'.'.$this->second.$this->number] = 1;
+    }
+
     public function generateString()
     {
-        $this->adjective    = $this->adjectives[mt_rand(0, count($this->adjectives)-1)];
-        $this->animal       = $this->animals[mt_rand(0, count($this->animals)-1)];
-        $this->number       = mt_rand($this->min, $this->max);
+        $this->generateNumbers();
+        $this->adjective    = $this->adjectives[$this->first];
+        $this->animal       = $this->animals[$this->second];
         switch ($this->case) {
             case 'ucfirst':
                 $this->string   = ucfirst($this->adjective.$this->animal.$this->number);
