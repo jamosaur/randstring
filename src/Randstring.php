@@ -791,8 +791,8 @@ class Randstring
     public function generate()
     {
         // Generate the string.
-        $colour = $this->colours[rand(0, count($this->colours))];
-        $animal = $this->animals[rand(0, count($this->animals))];
+        $colour = $this->colours[rand(0, count($this->colours)-1)];
+        $animal = $this->animals[rand(0, count($this->animals)-1)];
         $number = rand($this->min, $this->max);
 
         $string = $colour.$animal.$number;
