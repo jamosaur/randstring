@@ -811,7 +811,7 @@ class Randstring
         $string = $this->string;
 
         if ($this->case) {
-            return ucfirst($string);
+            return ucfirst(strtolower($string));
         }
         return $string;
     }
