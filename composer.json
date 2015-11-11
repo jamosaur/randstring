@@ -1,8 +1,10 @@
 {
-    "name": "league/randstring",
-    "description": ":package_description",
+    "name": "jamosaur/randstring",
+    "description": "Random string generator",
     "keywords": [
-        "league",
+        "random",
+        "String",
+        "generator",
         "randstring"
     ],
     "homepage": "https://github.com/jaaaaaaaaaam/randstring",
@@ -24,7 +26,7 @@
     },
     "autoload": {
         "psr-4": {
-            "League\\Skeleton\\": "src"
+            "JAmosaur\\Randstring\\": "src"
         }
     },
     "autoload-dev": {
