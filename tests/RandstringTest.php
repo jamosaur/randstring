@@ -49,13 +49,4 @@ class RandstringTest extends \PHPUnit_Framework_TestCase
         }
         $this->assertEquals(count(array_unique($t)), 5000);
     }
-
-    public function testOneHundredThousandUniques()
-    {
-        $rand       = new \Jamosaur\Randstring\Randstring();
-        for ($i = 0; $i < 100000; $i++) {
-            $t[$i] = $rand->generate();
-        }
-        $this->assertEquals(count(array_unique($t)), 100000);
-    }
 }

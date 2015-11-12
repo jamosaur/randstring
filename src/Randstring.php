@@ -40,17 +40,24 @@ class Randstring
         $this->animals      = explode(PHP_EOL, file_get_contents(__DIR__.'/dictionaries/animals.txt'));
     }
 
-    public function generateNumbers()
+    /**
+     * @param null $first
+     * @param null $second
+     */
+    public function generateNumbers($first = null, $second = null)
     {
-        $this->first    = mt_rand(0, count($this->adjectives) - 1);
-        $this->second   = mt_rand(0, count($this->animals) - 1);
+        $this->first    = ($first) ? $first : mt_rand(0, count($this->adjectives) - 1);
+        $this->second   = ($second) ? $second : mt_rand(0, count($this->animals) - 1);
         $this->number   = mt_rand($this->min, $this->max);
         if (isset($this->combinations[$this->first.'.'.$this->second.$this->number])) {
-            return $this->generateNumbers();
+            $this->generateNumbers($this->first, $this->second);
         }
         $this->combinations[$this->first.'.'.$this->second.$this->number] = 1;
     }
 
+    /**
+     * Generate a string.
+     */
     public function generateString()
     {
         $this->generateNumbers();
@@ -69,6 +76,9 @@ class Randstring
         }
     }
 
+    /**
+     * @return mixed
+     */
     public function generate()
     {
         $this->generateString();
