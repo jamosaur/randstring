@@ -26,7 +26,7 @@ class Randstring
     /**
      * Randstring constructor.
      *
-     * @param null $case      (ucwords, ucfirst)
+     * @param null $case      (ucwords, ucfirst|sentence)
      * @param int  $maxLength
      * @param int  $min
      * @param int  $max
@@ -45,10 +45,10 @@ class Randstring
      * @param null $first
      * @param null $second
      */
-    public function generateNumbers($first = null, $second = null)
+    private function generateNumbers($first = null, $second = null)
     {
-        $this->first = ($first) ? $first : mt_rand(0, count($this->adjectives) - 1);
-        $this->second = ($second) ? $second : mt_rand(0, count($this->animals) - 1);
+        $this->first = ($first) ? $first : mt_rand(0, count($this->adjectives)-1);
+        $this->second = ($second) ? $second : mt_rand(0, count($this->animals)-1);
         $this->number = mt_rand($this->min, $this->max);
         if (array_key_exists($this->first.'.'.$this->second.'.'.$this->number, $this->combinations)) {
             $this->generateNumbers($this->first, $this->second);
@@ -59,7 +59,7 @@ class Randstring
     /**
      * Generate a string.
      */
-    public function generateString()
+    private function generateString()
     {
         $this->generateNumbers();
         $this->adjective = $this->adjectives[$this->first];
@@ -69,6 +69,7 @@ class Randstring
                 $this->string = ucfirst($this->adjective.$this->animal.$this->number);
                 break;
             case 'ucwords':
+            case 'sentence':
                 $this->string = ucfirst($this->adjective).ucfirst($this->animal).ucfirst($this->number);
                 break;
             default:
