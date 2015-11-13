@@ -12,16 +12,16 @@ class RandstringTest extends \PHPUnit_Framework_TestCase
 
     public function testNumberRange()
     {
-        $rand       = new \Jamosaur\Randstring\Randstring(null, 100, 4, 12);
-        $numbers    = preg_replace('/[^0-9]+/', '', $rand->generate());
+        $rand = new \Jamosaur\Randstring\Randstring(null, 100, 4, 12);
+        $numbers = preg_replace('/[^0-9]+/', '', $rand->generate());
         $this->assertLessThan(13, $numbers);
         $this->assertGreaterThan(3, $numbers);
     }
 
     public function testUcfirst()
     {
-        $rand       = new \Jamosaur\Randstring\Randstring('ucfirst');
-        $string     = $rand->generate();
+        $rand = new \Jamosaur\Randstring\Randstring('ucfirst');
+        $string = $rand->generate();
         $this->assertEquals(ucfirst($rand->adjective).$rand->animal.$rand->number, $string);
     }
 
@@ -34,7 +34,7 @@ class RandstringTest extends \PHPUnit_Framework_TestCase
 
     public function testOneThousandUniques()
     {
-        $rand       = new \Jamosaur\Randstring\Randstring();
+        $rand = new \Jamosaur\Randstring\Randstring();
         for ($i = 0; $i < 1000; $i++) {
             $t[$i] = $rand->generate();
         }
@@ -43,7 +43,7 @@ class RandstringTest extends \PHPUnit_Framework_TestCase
 
     public function testFiveThousandUniques()
     {
-        $rand       = new \Jamosaur\Randstring\Randstring();
+        $rand = new \Jamosaur\Randstring\Randstring();
         for ($i = 0; $i < 5000; $i++) {
             $t[$i] = $rand->generate();
         }
@@ -52,7 +52,7 @@ class RandstringTest extends \PHPUnit_Framework_TestCase
 
     public function testOneHundredThousandUniques()
     {
-        $rand       = new \Jamosaur\Randstring\Randstring();
+        $rand = new \Jamosaur\Randstring\Randstring();
         for ($i = 0; $i < 100000; $i++) {
             $t[$i] = $rand->generate();
         }

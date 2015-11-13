@@ -25,19 +25,20 @@ class Randstring
 
     /**
      * Randstring constructor.
-     * @param null $case (ucwords, ucfirst)
-     * @param int $maxLength
-     * @param int $min
-     * @param int $max
+     *
+     * @param null $case      (ucwords, ucfirst)
+     * @param int  $maxLength
+     * @param int  $min
+     * @param int  $max
      */
     public function __construct($case = null, $maxLength = 100, $min = 1, $max = 99)
     {
-        $this->case         = $case;
-        $this->maxLength    = $maxLength;
-        $this->min          = $min;
-        $this->max          = $max;
-        $this->adjectives   = explode(PHP_EOL, file_get_contents(__DIR__.'/dictionaries/adjectives.txt'));
-        $this->animals      = explode(PHP_EOL, file_get_contents(__DIR__.'/dictionaries/animals.txt'));
+        $this->case = $case;
+        $this->maxLength = $maxLength;
+        $this->min = $min;
+        $this->max = $max;
+        $this->adjectives = explode(PHP_EOL, file_get_contents(__DIR__.'/dictionaries/adjectives.txt'));
+        $this->animals = explode(PHP_EOL, file_get_contents(__DIR__.'/dictionaries/animals.txt'));
     }
 
     /**
@@ -46,9 +47,9 @@ class Randstring
      */
     public function generateNumbers($first = null, $second = null)
     {
-        $this->first    = ($first) ? $first : mt_rand(0, count($this->adjectives) - 1);
-        $this->second   = ($second) ? $second : mt_rand(0, count($this->animals) - 1);
-        $this->number   = mt_rand($this->min, $this->max);
+        $this->first = ($first) ? $first : mt_rand(0, count($this->adjectives) - 1);
+        $this->second = ($second) ? $second : mt_rand(0, count($this->animals) - 1);
+        $this->number = mt_rand($this->min, $this->max);
         if (array_key_exists($this->first.'.'.$this->second.'.'.$this->number, $this->combinations)) {
             $this->generateNumbers($this->first, $this->second);
         }
@@ -61,17 +62,17 @@ class Randstring
     public function generateString()
     {
         $this->generateNumbers();
-        $this->adjective    = $this->adjectives[$this->first];
-        $this->animal       = $this->animals[$this->second];
+        $this->adjective = $this->adjectives[$this->first];
+        $this->animal = $this->animals[$this->second];
         switch ($this->case) {
             case 'ucfirst':
-                $this->string   = ucfirst($this->adjective.$this->animal.$this->number);
+                $this->string = ucfirst($this->adjective.$this->animal.$this->number);
                 break;
             case 'ucwords':
-                $this->string   = ucfirst($this->adjective).ucfirst($this->animal).ucfirst($this->number);
+                $this->string = ucfirst($this->adjective).ucfirst($this->animal).ucfirst($this->number);
                 break;
             default:
-                $this->string   = $this->adjective.$this->animal.$this->number;
+                $this->string = $this->adjective.$this->animal.$this->number;
                 break;
         }
     }
