@@ -128,7 +128,6 @@ naughty
 obedient
 obese
 oblong
-oblong
 obvious
 occasional
 oily
@@ -228,7 +227,6 @@ adept
 admirable
 admired
 adolescent
-adorable
 adored
 advanced
 affectionate
@@ -938,8 +936,6 @@ crisp
 dirty
 disguised
 dishonest
-dismal
-distant
 distant
 distinct
 distorted
@@ -1035,7 +1031,6 @@ our
 outgoing
 outlandish
 outlying
-precious
 pretty
 previous
 pricey
@@ -1091,7 +1086,6 @@ tragic
 trained
 traumatic
 treasured
-tremendous
 tremendous
 triangular
 tricky
@@ -1161,11 +1155,9 @@ cute
 cylindrical
 doting
 double
-downright
 drab
 drafty
 dramatic
-dreary
 droopy
 dry
 dual
@@ -1352,11 +1344,8 @@ aquamarine
 azure
 beige
 bisque
-black
 blanchedalmond
-blue
 blueviolet
-brown
 burlywood
 cadetblue
 chartreuse
@@ -1399,8 +1388,6 @@ gainsboro
 ghostwhite
 gold
 goldenrod
-gray
-green
 greenyellow
 honeydew
 hotpink
@@ -1455,7 +1442,6 @@ oldlace
 olive
 olivedrab
 opaque
-orange
 orangered
 orchid
 palegoldenrod
@@ -1465,11 +1451,8 @@ palevioletred
 papayawhip
 peachpuff
 peru
-pink
 plum
 powderblue
-purple
-red
 rosybrown
 royalblue
 saddlebrown
@@ -1478,7 +1461,6 @@ sandybrown
 seagreen
 seashell
 sienna
-silver
 skyblue
 slateblue
 slategray
@@ -1486,16 +1468,12 @@ slategrey
 snow
 springgreen
 steelblue
-tan
 teal
 thistle
 tomato
 transparent
 turquoise
-violet
 violetred
 wheat
-white
 whitesmoke
-yellow
 yellowgreen
