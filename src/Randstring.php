@@ -49,10 +49,10 @@ class Randstring
         $this->first    = ($first) ? $first : mt_rand(0, count($this->adjectives) - 1);
         $this->second   = ($second) ? $second : mt_rand(0, count($this->animals) - 1);
         $this->number   = mt_rand($this->min, $this->max);
-        if (array_key_exists($this->first.'.'.$this->second.$this->number, $this->combinations)) {
+        if (array_key_exists($this->first.'.'.$this->second.'.'.$this->number, $this->combinations)) {
             $this->generateNumbers($this->first, $this->second);
         }
-        $this->combinations[$this->first.'.'.$this->second.$this->number] = 1;
+        $this->combinations[$this->first.'.'.$this->second.'.'.$this->number] = 1;
     }
 
     /**
