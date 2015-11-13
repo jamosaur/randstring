@@ -22,8 +22,33 @@ $ composer require jamosaur/randstring
 ## Usage
 
 ``` php
-$rand = new Jamosaur/Randstring/Randstring;
+// Generate a random string.
+
+$rand = new Jamosaur\Randstring\Randstring();
 echo $rand->generate();
+// buoyantwhitetippedreefshark56
+
+
+// Generate a sentence case string that is no greater than 15 characters long.
+
+$rand = new Jamosaur\Randstring\Randstring('sentence', 15);
+echo $rand->generate();
+// BumpySquirrel32
+
+
+// Generate a string with the first letter in uppercase that is no greater than 20 characters long.
+
+$rand = new Jamosaur\Randstring\Randstring('ucfirst', 20);
+echo $rand->generate();
+// Moistmountaincat75
+
+
+// Generate a string with the first letter in uppercase that is no longer than 35 characters long with a random 
+// number between 123 and 143.
+
+$rand = new Jamosaur\Randstring\Randstring('ucfirst', 35, 123, 143);
+echo $rand->generate();
+// Tangibleindianrockpython127
 ```
 
 ## Change log
