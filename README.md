@@ -49,6 +49,12 @@ echo $rand->generate();
 $rand = new Jamosaur\Randstring\Randstring('ucfirst', 35, 123, 143);
 echo $rand->generate();
 // Tangibleindianrockpython127
+
+// Generate a string formatted in camelCase
+
+$rand = new Jamosaur\Randstring\Randstring('camel');
+echo $rand->generate();
+// carefulZebra23
 ```
 
 ## Change log
